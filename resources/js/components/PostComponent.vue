@@ -1,7 +1,8 @@
 <template>
   <div>
+    <CreateComponent />
     <SinglePostComponent />
-    <table class="table">
+    <!-- <table class="table">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -18,12 +19,13 @@
           <td>{{ person.job }}</td>
         </tr>
       </tbody>
-    </table>
+    </table> -->
   </div>
 </template>
 
 <script>
 import SinglePostComponent from "./SinglePostComponent";
+import CreateComponent from "./CreateComponent";
 export default {
   name: "PostComponent",
 
@@ -34,26 +36,27 @@ export default {
   },
 
   mounted() {
-      this.getPersons()
+    //   this.getPersons()
   },
 
   methods: {
-    getPersons() {
-      axios.get("/persons")
-      .then((res) => {
-          this.persons = res.data
-      })
-      .catch( error => {
+    // getPersons() {
+    //   axios.get("/persons")
+    //   .then((res) => {
+    //       this.persons = res.data
+    //   })
+    //   .catch( error => {
 
-      })
-      .finally({
-          
-      })
-    }
+    //   })
+    //   .finally({
+
+    //   })
+    // }
   },
 
   components: {
     SinglePostComponent,
+    CreateComponent,
   },
 };
 </script>
