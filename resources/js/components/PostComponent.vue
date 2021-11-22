@@ -1,7 +1,7 @@
 <template>
   <div>
     <CreateComponent />
-    <SinglePostComponent />
+    <IndexComponent />
     <!-- <table class="table">
       <thead>
         <tr>
@@ -24,8 +24,9 @@
 </template>
 
 <script>
-import SinglePostComponent from "./SinglePostComponent";
 import CreateComponent from "./CreateComponent";
+import IndexComponent from "./IndexComponent";
+
 export default {
   name: "PostComponent",
 
@@ -55,8 +56,8 @@ export default {
   },
 
   components: {
-    SinglePostComponent,
     CreateComponent,
+    IndexComponent,
   },
 };
 </script>
