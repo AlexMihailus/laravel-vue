@@ -45,6 +45,10 @@ export default {
     };
   },
 
+  mounted() {
+    // this.$parent.$refs.index.indexLog()
+  },
+
   methods: {
     addPerson() {
       axios
@@ -53,7 +57,7 @@ export default {
           this.name = null;
           this.age = null;
           this.job = null;
-          console.log(res);
+          this.$parent.$refs.index.getPeople();
         });
     },
   },
