@@ -39,6 +39,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Create",
@@ -51,13 +56,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     store: function store() {
-      axios.post('/api/people', {
+      axios.post("/api/people", {
         name: this.name,
         age: this.age,
         job: this.job
       }).then(function (res) {
         _router__WEBPACK_IMPORTED_MODULE_0__["default"].push({
-          name: 'person.index'
+          name: "person.index"
         });
       });
     }
