@@ -21,6 +21,7 @@
     </div>
     <div class="mb-3">
       <input
+        :disabled="!isDisabled"
         @click.prevent="update"
         type="submit"
         value="Update"
@@ -31,8 +32,6 @@
 </template>
 
 <script>
-import router from "../../router";
-
 export default {
   name: "Edit",
 
@@ -50,23 +49,32 @@ export default {
 
   methods: {
     getPerson() {
-      axios.get("/api/people/" + this.$route.params.id).then((res) => {
-        this.name = res.data.name;
-        this.age = res.data.age;
-        this.job = res.data.job;
+      axios.get(`/api/people/${this.$route.params.id}`).then((res) => {
+        this.name = res.data.data.name;
+        this.age = res.data.data.age;
+        this.job = res.data.data.job;
       });
     },
 
     update() {
       axios
-        .patch("/api/people/" + this.$route.params.id, {
+        .patch(`/api/people/${this.$route.params.id}`, {
           name: this.name,
           age: this.age,
           job: this.job,
         })
         .then((res) => {
-          router.push({ name: "person.show", params: { id: this.$route.params.id } });
+          this.$router.push({
+            name: "person.show",
+            params: { id: this.$route.params.id },
+          });
         });
+    },
+  },
+
+  computed: {
+    isDisabled() {
+      return this.name && this.age && this.job
     },
   },
 };
